@@ -1,68 +1,37 @@
-class Retangulo
+public class Retangulo extends FormaGeometrica
 {
    private double base, altura;
-      
-   public Retangulo(double b, double a)
+   
+   public Retangulo(double base, double altura)
    {
-      setBase(b);
-      setAltura(a);
+      super.setLados(4);
+      setBase(base);
+      setAltura(altura);
    }
    
-   public Retangulo()
+   public void setBase(double base)
    {
-      setBase(2);
-      setAltura(1);
-   } 
-   
-   
-   public void setBase(double b)
-   {
-     if(b>0)
-      base = b;
-     else
-      base = 0;  
+      if (base < 0) this.base = 0;
+      else this.base = base;
    }
    
-   public double getBase()
+   public void setAltura(double altura)
    {
-      return base;
+      if (altura < 0) this.altura = 0;
+      else this.altura = altura;  
    }
    
-   public void setAltura(double a)
-   {
-      if (a > 0)
-         altura = a;
-      else 
-         altura = 0;
-   }
-   
-   public double getAltura()
-   {
-      return altura;
-   }
-   
-   public double getArea()
+   public double area()
    {
       return base * altura;
    }
    
-   public double getPerimetro()
+   public void exibeInfo()
    {
-      return 2 * (base+altura);
+      System.out.println("Dados do retangulo");
+      super.exibeInfo();
+      System.out.println("Base: " + base);
+      System.out.println("Altura " + altura);
    }
    
-   public boolean isQuadrado()
-   {
-      return base == altura;
-   }
-   
-   public void imprimirInformacoes()
-   {
-        System.out.println("Base: " + getBase());
-        System.out.println("Altura: " + getAltura());
-        System.out.println("Área: " + getArea());
-        System.out.println("Perímetro: " + getPerimetro());
-        System.out.println("Quadrado? " + isQuadrado());
-   }
-      
-}   
+}
